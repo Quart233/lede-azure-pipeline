@@ -11,7 +11,7 @@ jobs:
   variables:
     workingDirectory: 'lede'
 
-  steps:
+steps:
   - script: |
       sudo apt-get -q -y install ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
       bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \
