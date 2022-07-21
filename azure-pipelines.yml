@@ -57,12 +57,12 @@ jobs:
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact: drop'
 
-    - task: GithubRelease@0
-      displayName: 'Create GitHub Release'
+    - task: GitHubRelease@1
       inputs:
-        gitHubConnection: github.com_Quart233
-        repositoryName: Quart233/lede-azure-pipeline
-        tagSource: manual
-        tag: 'lede_$(Build.BuildNumber)'
-        assets: |
-          $(Build.ArtifactStagingDirectory)/*
+        gitHubConnection: 'github.com_Quart233'
+        repositoryName: 'Quart233/lede-azure-pipeline'
+        action: 'create'
+        target: '$(Build.SourceVersion)'
+        tagSource: 'gitTag'
+        changeLogCompareToRelease: 'lastFullRelease'
+        changeLogType: 'commitBased'
